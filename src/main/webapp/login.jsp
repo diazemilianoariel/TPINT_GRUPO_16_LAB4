@@ -1,4 +1,3 @@
-<%-- login.jsp --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,12 +8,13 @@
 </head>
 
 
-<body>
+<body class="body-login-page">
+
     <div class="login-container">
         <h2>Acceso al Sistema Bancario</h2>
         
         
-        <form action="LoginServlet" method="post"> <!-- Action apuntará a tu Servlet de Login -->
+        <form action="LoginServlet" method="post"> 
             <div class="form-group">
                 <label for="usuario">Usuario:</label>
                 <input type="text" id="usuario" name="usuario" required>
@@ -25,7 +25,7 @@
             </div>
             <button type="submit" class="btn-login">Ingresar</button>
             <div class="message-area">
-                <!-- Aquí se mostrarán mensajes de error del login -->
+                <!-- en caso de que haya error semostraran aca abajo..-->
                 <% String mensajeError = (String) request.getAttribute("mensajeError"); %>
                 <% if (mensajeError != null) { %>
                     <p style="color: red;"><%= mensajeError %></p>
@@ -33,5 +33,6 @@
             </div>
         </form>
     </div>
+    
 </body>
 </html>
