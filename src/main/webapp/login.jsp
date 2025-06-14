@@ -1,38 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Banco UTN</title>
-   <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+    <title>Ingresar al sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/login.css">
 </head>
-
-
-<body class="body-login-page">
-
-    <div class="login-container">
-        <h2>Acceso al Sistema Bancario</h2>
-        
-        
-        <form action="LoginServlet" method="post"> 
-            <div class="form-group">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn-login">Ingresar</button>
-            <div class="message-area">
-                <!-- en caso de que haya error semostraran aca abajo..-->
-                <% String mensajeError = (String) request.getAttribute("mensajeError"); %>
-                <% if (mensajeError != null) { %>
-                    <p style="color: red;"><%= mensajeError %></p>
-                <% } %>
-            </div>
-        </form>
-    </div>
-    
+<body class="bg-light">
+	<header class="navbar navbar-dark bg-secondary">
+	    <div class="container-fluid">
+	        <span class="navbar-brand mb-0 h1 mx-auto">SISTEMA BANCARIO UTN</span>
+	    </div>
+	</header>
+	<main class="container-fluid login-container d-flex justify-content-center align-items-center">
+	    <div class="col-md-4">
+	        <div class="card shadow">
+	            <div class="card-body">
+	                <h4 class="card-title text-center mb-4">Ingresar al sistema</h4>
+	                <form action="login" method="post">
+					    <div class="mb-3">
+					        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+					    </div>
+					    <div class="mb-3">
+					        <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+					    </div>
+					    <button type="submit" class="btn btn-secondary btn-sm w-50 d-block mx-auto">Ingresar</button>
+					</form>
+	            </div>
+	        </div>
+	    </div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
