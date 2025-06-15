@@ -39,6 +39,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="solicitarPrestamos.jsp">Solicitar Préstamo</a>
                 </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="clientePagoPrestamos.jsp">Pago Préstamo</a>
+                </li>
+                
+                 <li class="nav-item">
+                    <a class="nav-link" href="clienteListaTransferencias.jsp">Transferencias</a>
+                </li>
+                
             <% } %>
         </ul>
     </div>
