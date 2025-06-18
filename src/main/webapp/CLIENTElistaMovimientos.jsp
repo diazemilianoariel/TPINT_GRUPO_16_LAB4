@@ -8,10 +8,60 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 </head>
+
+
 <body class="bg-light">
 	  <jsp:include page="_layoutHeaderNav.jsp" />
 	  
 	  
+	  <div class="container mt-4">
+    <form method="get" action="CLIENTElistaMovimientos.jsp" class="row g-3 align-items-end">
+        
+        <!-- Filtro por cuenta -->
+        <div class="col-md-4">
+            <label for="cuenta" class="form-label">Cuenta</label>
+            <select name="cuenta" id="cuenta" class="form-select">
+                <option value="">Todas</option>
+                <%--  cuentas del cliente  --%>
+                <%-- 
+                    List<Cuenta> cuentas = (List<Cuenta>) request.getAttribute("cuentasCliente");
+                    if (cuentas != null) {
+                        for (Cuenta c : cuentas) {
+                --%>
+                <%-- 
+                            <option value="<%= c.getIdCuenta() %>"><%= c.getNumeroCuenta() %></option>
+                        }
+                    }
+                --%>
+            </select>
+        </div>
+        
+        <!-- Filtro por tipo de movimiento -->
+        <div class="col-md-4">
+            <label for="tipo" class="form-label">Tipo de Movimiento</label>
+            <select name="tipo" id="tipo" class="form-select">
+                <option value="">Todos</option>
+                <option value="1">Transferencia</option>
+                <option value="2">Pago Préstamo</option>
+                <option value="3">Depósito</option>
+                <option value="4">Extracción</option>
+                <option value="5">Cobro</option>
+                <option value="6">Débito Automático</option>
+            </select>
+        </div>
+
+        <!-- Botón buscar -->
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+        </div>
+
+    </form>
+</div>
+	  
+	  
+	  
+	  
+	<!--  este codigo lo comento para que el cliente pueda filtrar los movimientos por tipo y por cuenta
 	<main class="container py-5">
 	    <h4 class="text-center mb-4">Movimientos Bancarios</h4>
 	
@@ -54,6 +104,7 @@
 	        </table>
 	    </div>
 	</main>
+	-->
 	
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
