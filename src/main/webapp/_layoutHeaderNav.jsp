@@ -6,7 +6,8 @@
 <!-- ESTE LAYOUT ES EL ENCARGADO DE CENTRALIZAR Y UTILIZAR EN CADA UNA DE LAS PAGINA EL MISMO MENU DE NAGEVACION , 
 VAYAN MIRANCHO CHICOS , SE VAN A DAR CUENTA QUE EN CADA PAGINA ESTA ESTE MISMO LAYOUT, ES PARA NO ANDAR COPIANDO EL MISMO MENU EN TODAS LAS 
 PAGINAS  -->
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 
 <header class="navbar navbar-dark bg-secondary">
 
@@ -55,4 +56,4 @@ PAGINAS  -->
     </div>
 </nav>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
