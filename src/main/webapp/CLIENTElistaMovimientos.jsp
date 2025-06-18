@@ -2,6 +2,8 @@
 <%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
+	  <jsp:include page="_layoutHeaderNav.jsp" />
+
 <head>
     <meta charset="UTF-8">
     <title>Listado de Movimientos</title>
@@ -9,10 +11,9 @@
     <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 </head>
 
-
-<body class="bg-light">
-	  <jsp:include page="_layoutHeaderNav.jsp" />
-	  
+	  	<main class="container py-5">
+	    <h4 class="text-center mb-4">Movimientos Bancarios</h4>
+	
 	  
 	  <div class="container mt-4">
     <form method="get" action="CLIENTElistaMovimientos.jsp" class="row g-3 align-items-end">
@@ -59,12 +60,7 @@
 </div>
 	  
 	  
-	  
-	  
-	<!--  este codigo lo comento para que el cliente pueda filtrar los movimientos por tipo y por cuenta
-	<main class="container py-5">
-	    <h4 class="text-center mb-4">Movimientos Bancarios</h4>
-	
+
 	    <div class="table-responsive">
 	        <table class="table table-bordered table-hover align-middle text-center">
 	            <thead class="table-secondary">
@@ -104,7 +100,7 @@
 	        </table>
 	    </div>
 	</main>
-	-->
+	
 	
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
