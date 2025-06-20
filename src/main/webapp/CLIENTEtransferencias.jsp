@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Transferencias</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 <style>
       body {
             background-color: #f8f9fa;
@@ -64,16 +63,14 @@
     </style>
 </head>
 <body>
-<jsp:include page="_layoutHeaderNav.jsp" />
-
+	<jsp:include page="_layoutHeaderNav.jsp" />
     <main class="container py-5">
     <div class="container">
         <div class="transferencias-container">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h1 class="h3 mb-0">Historial de Transferencias</h1>
-                <button class="btn btn-primary btn-sm">Nueva Transferencia</button>
+                <button class="btn btn-secondary btn-sm">Nueva Transferencia</button>
             </div>
-            
             <div class="table-responsive">
                 <table class="table table-hover">
                     <thead>
@@ -145,20 +142,19 @@
                     </tbody>
                 </table>
             </div>
-            
             <nav aria-label="Page navigation" class="mt-3">
-                <ul class="pagination pagination-sm justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">‹</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">›</a>
-                    </li>
-                </ul>
-            </nav>
+			    <ul class="pagination pagination-sm justify-content-center">
+			        <li class="page-item disabled">
+			            <a class="page-link text-secondary" href="#" tabindex="-1">‹</a>
+			        </li>
+			        <li class="page-item active"><a class="page-link bg-secondary border-secondary text-white" href="#">1</a></li>
+			        <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
+			        <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
+			        <li class="page-item">
+			            <a class="page-link text-secondary" href="#">›</a>
+			        </li>
+			    </ul>
+			</nav>
         </div>
     </div>
         </main>

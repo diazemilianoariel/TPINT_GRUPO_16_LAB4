@@ -1,27 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
-
+<title>Reportes del Sistema Bancario</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 </head>
-<body>
-
+<body class="bg-light">
 <jsp:include page="_layoutHeaderNav.jsp" />
-
-    <main class="container py-5">
-    
- 
-    
+<main class="container py-5">
     <h3 class="text-center mb-4">Reportes del Sistema Bancario</h3>
-
-    <!-- reporte 1 clientes nuevos por rango de fechas -->
     <section class="mb-5">
-        <h5>Clientes nuevos entre fechas</h5>
+        <h5 class="mb-3">Clientes nuevos entre fechas</h5>
         <form method="get" action="ReporteClientesServlet" class="row g-3 align-items-end">
             <div class="col-md-4">
                 <label for="fechaDesde" class="form-label">Desde</label>
@@ -31,12 +23,10 @@
                 <label for="fechaHasta" class="form-label">Hasta</label>
                 <input type="date" name="fechaHasta" id="fechaHasta" class="form-control" required>
             </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-primary w-100">Buscar</button>
+            <div class="col-md-4 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary btn-sm w-50">Buscar</button>
             </div>
         </form>
-
-        <!-- div  resultados reporte 1 -->
         <div class="mt-4">
             <h6>Resultado</h6>
             <table class="table table-bordered text-center align-middle">
@@ -55,12 +45,9 @@
             </table>
         </div>
     </section>
-
     <hr>
-
-    <!--  reporte 2 monto total en préstamos del banco a clientes entre fechas -->
     <section>
-        <h5>Dinero del banco destinado a préstamos por periodo</h5>
+        <h5 class="mb-3">Dinero del banco destinado a préstamos por periodo</h5>
         <form method="get" action="ReportePrestamosServlet" class="row g-3 align-items-end">
             <div class="col-md-4">
                 <label for="fechaInicioPrestamo" class="form-label">Desde</label>
@@ -70,12 +57,10 @@
                 <label for="fechaFinPrestamo" class="form-label">Hasta</label>
                 <input type="date" name="fechaFinPrestamo" id="fechaFinPrestamo" class="form-control" required>
             </div>
-            <div class="col-md-4">
-                <button type="submit" class="btn btn-success w-100">Consultar</button>
+            <div class="col-md-4 d-flex justify-content-center">
+                <button type="submit" class="btn btn-success btn-sm w-50">Consultar</button>
             </div>
         </form>
-
-        <!--div  resultados reporte 2  -->
         <div class="mt-4">
             <h6>Resultado</h6>
             <table class="table table-bordered text-center align-middle">
@@ -96,54 +81,7 @@
             </table>
         </div>
     </section>
-
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-        </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-

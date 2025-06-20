@@ -3,37 +3,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="CSS/solicitarPrestamos.css">
 </head>
 <body>
 <jsp:include page="_layoutHeaderNav.jsp" />
-
-	 <main class="container py-5">
-	 
-	 	 <h4>Datos de Acceso (Usuario y Contraseña)</h4>
-            <div class="form-group">
-                <label for="usuarioAcceso">Usuario para Acceso:</label>
-                <input type="text" id="usuarioAcceso" name="usuarioAcceso" value="${clienteAEditar.usuarioAcceso.nombreUsuario}" required>
-            </div>
-            <div class="form-group">
-                <label for="passwordAcceso">Contraseña:</label>
-                <input type="password" id="passwordAcceso" name="passwordAcceso" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmPasswordAcceso">Confirmar Contraseña:</label>
-                <input type="password" id="confirmPasswordAcceso" name="confirmPasswordAcceso" required>
-            </div>
-
-            <button type="submit" class="btn">Guardar Cliente</button>
-            <button type="reset" class="btn">Limpiar Formulario</button>
-            <a href="clientesListado.jsp" class="btn">Cancelar y Volver</a>
-	 	
-	 	
-	 
-	 </main>
+	<main class="container-fluid login-container d-flex justify-content-center align-items-center">
+	    <div class="col-md-4">
+	        <div class="card shadow">
+	            <div class="card-body">
+	                <h4 class="card-title text-center mb-4">Datos de Acceso</h4>
+	                <form action="login" method="post">
+					    <div class="mb-3">
+					        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+					    </div>
+					    <div class="mb-3">
+					        <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+					    </div>
+					    <div class="mb-3">
+					        <input type="password" class="form-control" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+					    </div>
+					    <div class="d-flex justify-content-center gap-2">
+					        <button type="submit" class="btn btn-secondary btn-sm w-50">Guardar Cliente</button>
+					        <button type="reset" class="btn btn-secondary btn-sm w-50">Limpiar Formulario</button>
+					    </div>
+					</form>
+	            </div>
+	        </div>
+	    </div>
+	</main>
 	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

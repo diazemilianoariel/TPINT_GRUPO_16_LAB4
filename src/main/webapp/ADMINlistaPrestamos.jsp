@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <title>Listado de Préstamos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
 </head>
-
-
-
 <body class="bg-light">
 	<jsp:include page="_layoutHeaderNav.jsp" />
 	<main class="container py-5">
@@ -70,9 +66,6 @@
 	        </table>
 	    </div>
 	</main>
-	
-	
-	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

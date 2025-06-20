@@ -1,59 +1,44 @@
-<!-- _layoutHeaderNav.jsp (solo contiene el header y el nav de Bootstrap) -->
-<!-- Estos links temporales son para ver ambos menús para la primera entrega -->
-<!-- En la entrega 2, esta lógica será manejada por un Servlet/Filtro de autenticación -->
-
-
-<!-- ESTE LAYOUT ES EL ENCARGADO DE CENTRALIZAR Y UTILIZAR EN CADA UNA DE LAS PAGINA EL MISMO MENU DE NAGEVACION , 
-VAYAN MIRANCHO CHICOS , SE VAN A DAR CUENTA QUE EN CADA PAGINA ESTA ESTE MISMO LAYOUT, ES PARA NO ANDAR COPIANDO EL MISMO MENU EN TODAS LAS 
-PAGINAS  -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="CSS/estilos.css">
-
-<header class="navbar navbar-dark bg-secondary">
-
-
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-        <span class="navbar-brand mb-0 h1">SISTEMA BANCARIO UTN</span>
-        <a href="login.jsp" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
-    </div>
-    
-    
-</header>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
-    <div class="container">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        
-        
-            <li class="nav-item"><a class="nav-link" href="menuAdministrador.jsp">Inicio Admin</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINabmlClientes.jsp">Gestión Clientes</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINabmlUsuarios.jsp">Gestión Usuarios</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINclienteListaCuentas.jsp">Gestión Cuentas</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINlistaPrestamos.jsp">Autorizar Préstamos</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINreportes.jsp">Reportes Admin</a></li>
-            <li class="nav-item"><a class="nav-link" href="ADMINlistadoClientes.jsp">Listado Clientes</a></li>
-            
-            
-            
-            
-            <li class="nav-item mx-2"><span class="nav-link text-muted">|</span></li>
-            <li class="nav-item mx-2"><span class="nav-link text-muted">|</span></li>
-            
-            
-            
-            
-            <li class="nav-item"><a class="nav-link" href="menuCliente.jsp">Inicio Cliente</a></li>
-            <li class="nav-item"><a class="nav-link" href="CLIENTElistaMovimientos.jsp">Movimientos</a></li>
-            <li class="nav-item"><a class="nav-link" href="CLIENTEtransferencias.jsp">Transferencias</a></li>
-            <li class="nav-item"><a class="nav-link" href="CLIENTEsolicitarPrestamos.jsp">Solicitar Préstamo</a></li>
-            <li class="nav-item"><a class="nav-link" href="CLIENTEpagoPrestamos.jsp">Pago Préstamos</a></li>
-            <li class="nav-item"><a class="nav-link" href="CLIENTEinfoPersonal.jsp">Mi Información</a></li>
-            
-            
-            
-        </ul>
-    </div>
-</nav>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>SISTEMA BANCARIO UTN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+	<header class="navbar navbar-dark bg-secondary">
+	    <div class="container-fluid d-flex justify-content-between align-items-center">
+	        <span class="navbar-brand mb-0 h1">SISTEMA BANCARIO UTN</span>
+	        <a href="login.jsp" class="btn btn-outline-light btn-sm">Cerrar sesión</a>
+	    </div>
+	</header>
+	<nav class="navbar bg-light border-bottom shadow-sm">
+	    <div class="container d-flex flex-column align-items-center py-3">
+	        <div class="mb-3 w-100 d-flex justify-content-center flex-wrap gap-2">
+	            <span class="fw-bold text-secondary me-3 align-self-center" style="cursor:default; user-select:none;">
+	                ADMINISTRADOR
+	            </span>
+	            <a href="menuAdministrador.jsp" class="btn btn-secondary btn-sm text-nowrap">Inicio Admin</a>
+	            <a href="ADMINabmlClientes.jsp" class="btn btn-secondary btn-sm text-nowrap">Gestión Clientes</a>
+	            <a href="ADMINabmlUsuarios.jsp" class="btn btn-secondary btn-sm text-nowrap">Gestión Usuarios</a>
+	            <a href="ADMINclienteListaCuentas.jsp" class="btn btn-secondary btn-sm text-nowrap">Gestión Cuentas</a>
+	            <a href="ADMINlistaPrestamos.jsp" class="btn btn-secondary btn-sm text-nowrap">Autorizar Préstamos</a>
+	            <a href="ADMINreportes.jsp" class="btn btn-secondary btn-sm text-nowrap">Reportes Admin</a>
+	            <a href="ADMINlistadoClientes.jsp" class="btn btn-secondary btn-sm text-nowrap">Listado Clientes</a>
+	        </div>
+	        <div class="w-100 d-flex justify-content-center flex-wrap gap-2">
+	            <span class="fw-bold text-secondary me-3 align-self-center" style="cursor:default; user-select:none;">
+	                CLIENTE
+	            </span>
+	            <a href="menuCliente.jsp" class="btn btn-secondary btn-sm text-nowrap">Inicio Cliente</a>
+	            <a href="CLIENTElistaMovimientos.jsp" class="btn btn-secondary btn-sm text-nowrap">Movimientos</a>
+	            <a href="CLIENTEtransferencias.jsp" class="btn btn-secondary btn-sm text-nowrap">Transferencias</a>
+	            <a href="CLIENTEsolicitarPrestamos.jsp" class="btn btn-secondary btn-sm text-nowrap">Solicitar Préstamo</a>
+	            <a href="CLIENTEpagoPrestamos.jsp" class="btn btn-secondary btn-sm text-nowrap">Pago Préstamos</a>
+	            <a href="CLIENTEinfoPersonal.jsp" class="btn btn-secondary btn-sm text-nowrap">Mi Información</a>
+	        </div>
+	    </div>
+	</nav>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
