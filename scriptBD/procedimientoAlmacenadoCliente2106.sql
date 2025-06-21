@@ -6,14 +6,17 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_IngresarCliente`(
   IN pSexo CHAR(1),
   IN pFechaNacimiento DATE,
   IN pDireccion VARCHAR(100),
+  IN pCorreoElectronico VARCHAR(50),
+  IN pTelefono VARCHAR(50),
   IN pIdLocalidad INT
+  
 )
 BEGIN
   DECLARE vIdUsuario INT;
 
   -- 1. Insertar usuario vacío (solo con campos NULL)
-  INSERT INTO Usuarios (NombreUsuario, Password, IdTipoUsuario)
-  VALUES (NULL, NULL, 2);
+  INSERT INTO Usuarios (NombreUsuario, Password, IdTipoUsuario, Estado)
+  VALUES (NULL, NULL, 2, 1);
 
   -- 2. Obtener el último ID insertado
   SET vIdUsuario = LAST_INSERT_ID();
@@ -21,10 +24,10 @@ BEGIN
   -- 3. Insertar cliente con ese IdUsuario
   INSERT INTO Clientes (
     Dni, Cuil, Nombre, Apellido, Sexo, FechaNacimiento,
-    Direccion, IdLocalidad, IdUsuario
+    Direccion, CorreoElectronico, Telefono, IdLocalidad, IdUsuario, Estado
   )
   VALUES (
     pDni, pCuil, pNombre, pApellido, pSexo, pFechaNacimiento,
-    pDireccion, pIdLocalidad, vIdUsuario
+    pDireccion, pIdLocalidad, vIdUsuario, 1
   );
 END
