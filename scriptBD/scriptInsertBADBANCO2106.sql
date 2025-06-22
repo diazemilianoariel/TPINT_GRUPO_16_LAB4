@@ -95,6 +95,7 @@ CREATE TABLE Cuotas (
   NumeroCuota INT,
   Monto DECIMAL(15,2),
   FechaPago DATE,
+  Estado BOOLEAN DEFAULT 0,
   FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo)
   );
 
@@ -256,12 +257,20 @@ INSERT INTO Movimientos (FechaHora, Referencia, Importe, IdTipoMovimiento, IdCue
 
 
 -- prueba del trigger (SI AGREGAN UN CLIENTE SE AGREGA AUTOMATICAMENTE A LA TABLA USUARIOS GENERANDO UN IDUSUARIO QUE SE CARGA EN LA TABLA CLIENTES, Y NOMBREUSUARIO Y PASSWORD VACIO)
--- INSERT INTO Clientes (
- -- Dni, Cuil, Nombre, Apellido, Sexo, Nacionalidad, FechaNacimiento,
- -- Direccion, CorreoElectronico, Telefono, IdLocalidad, IdUsuario,Estado 
--- ) VALUES (
-  -- '29685599', '20-29685599-5', 'Homero', 'Chispa', 'M', 'ARGENTINA', '1986-06-14', 
-  -- 'Calle luna 689', 'homerochispa@hotmail.com', '15777888', 3, NULL, 1 
--- );
+INSERT INTO Clientes (
+Dni, Cuil, Nombre, Apellido, Sexo, Nacionalidad, FechaNacimiento,
+Direccion, CorreoElectronico, Telefono, IdLocalidad, IdUsuario,Estado 
+) VALUES (
+ '29685599', '20-29685599-5', 'Homero', 'Chispa', 'M', 'ARGENTINA', '1986-06-14', 
+ 'Calle luna 689', 'homerochispa@hotmail.com', '15777888', 3, NULL, 1 
+ );
 
+-- vuelvo a probar procedimiento almacenado y trigger funciona correctamente 2106
+INSERT INTO Clientes (
+Dni, Cuil, Nombre, Apellido, Sexo, Nacionalidad, FechaNacimiento,
+Direccion, CorreoElectronico, Telefono, IdLocalidad, IdUsuario,Estado 
+) VALUES (
+ '20125697', '21-20125697-4', 'Margarita', 'Crepe', 'F', 'ARGENTINA', '1963-03-10', 
+ 'Calle arbolada 1256', 'margaritacrepe@hotmail.com', '15010012', 4, NULL, 1 
+ );
 
