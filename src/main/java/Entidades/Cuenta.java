@@ -3,21 +3,21 @@ package Entidades;
 import java.time.LocalDate; // Importar para FechaCreacion
 import java.math.BigDecimal; // Importar para manejo preciso de dinero
 
-public class Cuentas {
+public class Cuenta {
     private int idCuenta;
-    private Clientes cliente; // Objeto de composición
+    private Cliente cliente; // Objeto de composición
     private LocalDate fechaCreacion;
-    private TiposCuenta tipoCuenta; // Objeto de composición
+    private TipoCuenta tipoCuenta; // Objeto de composición
     private String numeroCuenta;
     private String cbu;
     private BigDecimal saldo; // Usar BigDecimal para dinero por precisión
     private boolean estado; // Coincide con 'Estado' en tu DDL actual
 
-    public Cuentas() {
+    public Cuenta() {
         // Constructor vacío
     }
 
-    public Cuentas(int idCuenta, Clientes cliente, LocalDate fechaCreacion, TiposCuenta tipoCuenta,
+    public Cuenta(int idCuenta, Cliente cliente, LocalDate fechaCreacion, TipoCuenta tipoCuenta,
                   String numeroCuenta, String cbu, BigDecimal saldo, boolean estado) {
         this.idCuenta = idCuenta;
         this.cliente = cliente;
@@ -34,7 +34,7 @@ public class Cuentas {
         return idCuenta;
     }
 
-    public Clientes getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
@@ -42,7 +42,7 @@ public class Cuentas {
         return fechaCreacion;
     }
 
-    public TiposCuenta getTipoCuenta() {
+    public TipoCuenta getTipoCuenta() {
         return tipoCuenta;
     }
 
@@ -67,7 +67,7 @@ public class Cuentas {
         this.idCuenta = idCuenta;
     }
 
-    public void setCliente(Clientes cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -75,7 +75,7 @@ public class Cuentas {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public void setTipoCuenta(TiposCuenta tipoCuenta) {
+    public void setTipoCuenta(TipoCuenta tipoCuenta) {
         this.tipoCuenta = tipoCuenta;
     }
 

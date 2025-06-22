@@ -3,22 +3,22 @@ package Entidades;
 import java.time.LocalDateTime; // Importar para FechaHora
 import java.math.BigDecimal; // Importar para manejo preciso de dinero
 
-public class Movimientos {
+public class Movimiento {
     private int idMovimiento;
     private LocalDateTime fechaHora;
     private String concepto; // Coincide con 'Concepto' en tu DDL actual (antes 'Referencia')
     private BigDecimal importe;
-    private TiposMovimiento tipoMovimiento; // Objeto de composición
-    private Cuentas cuentaOrigen; // Objeto de composición
-    private Cuentas cuentaDestino; // Objeto de composición (puede ser null)
+    private TipoMovimiento tipoMovimiento; // Objeto de composición
+    private Cuenta cuentaOrigen; // Objeto de composición
+    private Cuenta cuentaDestino; // Objeto de composición (puede ser null)
 
-    public Movimientos() {
+    public Movimiento() {
         // Constructor vacío
     }
 
-    public Movimientos(int idMovimiento, LocalDateTime fechaHora, String concepto,
-                      BigDecimal importe, TiposMovimiento tipoMovimiento,
-                      Cuentas cuentaOrigen, Cuentas cuentaDestino) {
+    public Movimiento(int idMovimiento, LocalDateTime fechaHora, String concepto,
+                      BigDecimal importe, TipoMovimiento tipoMovimiento,
+                      Cuenta cuentaOrigen, Cuenta cuentaDestino) {
         this.idMovimiento = idMovimiento;
         this.fechaHora = fechaHora;
         this.concepto = concepto;
@@ -45,15 +45,15 @@ public class Movimientos {
         return importe;
     }
 
-    public TiposMovimiento getTipoMovimiento() {
+    public TipoMovimiento getTipoMovimiento() {
         return tipoMovimiento;
     }
 
-    public Cuentas getCuentaOrigen() {
+    public Cuenta getCuentaOrigen() {
         return cuentaOrigen;
     }
 
-    public Cuentas getCuentaDestino() {
+    public Cuenta getCuentaDestino() {
         return cuentaDestino;
     }
 
@@ -78,15 +78,15 @@ public class Movimientos {
         this.importe = importe;
     }
 
-    public void setTipoMovimiento(TiposMovimiento tipoMovimiento) {
+    public void setTipoMovimiento(TipoMovimiento tipoMovimiento) {
         this.tipoMovimiento = tipoMovimiento;
     }
 
-    public void setCuentaOrigen(Cuentas cuentaOrigen) {
+    public void setCuentaOrigen(Cuenta cuentaOrigen) {
         this.cuentaOrigen = cuentaOrigen;
     }
 
-    public void setCuentaDestino(Cuentas cuentaDestino) {
+    public void setCuentaDestino(Cuenta cuentaDestino) {
         this.cuentaDestino = cuentaDestino;
     }
 

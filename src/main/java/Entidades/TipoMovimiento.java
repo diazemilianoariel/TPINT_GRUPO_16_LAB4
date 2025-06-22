@@ -1,14 +1,14 @@
 package Entidades;
 
-public class TiposMovimiento {
+public class TipoMovimiento {
     private int idTipoMovimiento;
     private String descripcion;
 
-    public TiposMovimiento() {
+    public TipoMovimiento() {
         // Constructor vacío
     }
 
-    public TiposMovimiento(int idTipoMovimiento, String descripcion) {
+    public TipoMovimiento(int idTipoMovimiento, String descripcion) {
         this.idTipoMovimiento = idTipoMovimiento;
         this.descripcion = descripcion;
     }

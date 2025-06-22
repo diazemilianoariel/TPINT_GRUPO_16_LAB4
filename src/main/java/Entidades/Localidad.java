@@ -1,15 +1,15 @@
 package Entidades;
 
-public class Localidades {
+public class Localidad {
     private int idLocalidad;
     private String descripcion;
-    private Provincias provincia; 
+    private Provincia provincia; 
 
-    public Localidades() {
+    public Localidad() {
         // Constructor vacío
     }
 
-    public Localidades(int idLocalidad, String descripcion, Provincias provincia) {
+    public Localidad(int idLocalidad, String descripcion, Provincia provincia) {
         this.idLocalidad = idLocalidad;
         this.descripcion = descripcion;
         this.provincia = provincia;
@@ -24,7 +24,7 @@ public class Localidades {
         return descripcion;
     }
 
-    public Provincias getProvincia() {
+    public Provincia getProvincia() {
         return provincia;
     }
 
@@ -37,7 +37,7 @@ public class Localidades {
         this.descripcion = descripcion;
     }
 
-    public void setProvincia(Provincias provincia) {
+    public void setProvincia(Provincia provincia) {
         this.provincia = provincia;
     }
 

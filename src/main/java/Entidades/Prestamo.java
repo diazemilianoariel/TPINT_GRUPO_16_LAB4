@@ -5,8 +5,8 @@ import java.time.LocalDate; // Importar para FechaAlta
 
 public class Prestamo {
     private int idPrestamo;
-    private Clientes cliente; 
-    private Cuentas cuentaAsociada; 
+    private Cliente cliente; 
+    private Cuenta cuentaAsociada; 
     private LocalDate fechaAlta;
     private double importePedido;
     private int plazoMeses;
@@ -19,7 +19,7 @@ public class Prestamo {
         // Constructor vacío
     }
 
-    public Prestamo(int idPrestamo, Clientes cliente, Cuentas cuentaAsociada, LocalDate fechaAlta,
+    public Prestamo(int idPrestamo, Cliente cliente, Cuenta cuentaAsociada, LocalDate fechaAlta,
                      double importePedido, int plazoMeses, double importePorMes,
                      double interes, int cantidadCuotas, String estado) {
         this.idPrestamo = idPrestamo;
@@ -39,11 +39,11 @@ public class Prestamo {
         return idPrestamo;
     }
 
-    public Clientes getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public Cuentas getCuentaAsociada() {
+    public Cuenta getCuentaAsociada() {
         return cuentaAsociada;
     }
 
@@ -80,11 +80,11 @@ public class Prestamo {
         this.idPrestamo = idPrestamo;
     }
 
-    public void setCliente(Clientes cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public void setCuentaAsociada(Cuentas cuentaAsociada) {
+    public void setCuentaAsociada(Cuenta cuentaAsociada) {
         this.cuentaAsociada = cuentaAsociada;
     }
 

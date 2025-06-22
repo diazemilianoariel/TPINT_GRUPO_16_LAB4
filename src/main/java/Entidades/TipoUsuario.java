@@ -2,15 +2,15 @@ package Entidades;
 
 
 
-public class TiposUsuario {
+public class TipoUsuario {
     private int idTipoUsuario;
     private String descripcion;
 
-    public TiposUsuario() {
+    public TipoUsuario() {
         // Constructor vacío
     }
 
-    public TiposUsuario(int idTipoUsuario, String descripcion) {
+    public TipoUsuario(int idTipoUsuario, String descripcion) {
         this.idTipoUsuario = idTipoUsuario;
         this.descripcion = descripcion;
     }

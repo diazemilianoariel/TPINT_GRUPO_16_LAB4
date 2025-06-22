@@ -1,21 +1,21 @@
 package Entidades;
 
-public class Provincias {
-    private int idProvincia;
+public class TipoCuenta {
+    private int idTipoCuenta;
     private String descripcion;
 
-    public Provincias() {
+    public TipoCuenta() {
         // Constructor vacío
     }
 
-    public Provincias(int idProvincia, String descripcion) {
-        this.idProvincia = idProvincia;
+    public TipoCuenta(int idTipoCuenta, String descripcion) {
+        this.idTipoCuenta = idTipoCuenta;
         this.descripcion = descripcion;
     }
 
     // Getters
-    public int getIdProvincia() {
-        return idProvincia;
+    public int getIdTipoCuenta() {
+        return idTipoCuenta;
     }
 
     public String getDescripcion() {
@@ -23,8 +23,8 @@ public class Provincias {
     }
 
     // Setters
-    public void setIdProvincia(int idProvincia) {
-        this.idProvincia = idProvincia;
+    public void setIdTipoCuenta(int idTipoCuenta) {
+        this.idTipoCuenta = idTipoCuenta;
     }
 
     public void setDescripcion(String descripcion) {
@@ -33,8 +33,8 @@ public class Provincias {
 
     @Override
     public String toString() {
-        return "Provincia{" +
-               "idProvincia=" + idProvincia +
+        return "TipoCuenta{" +
+               "idTipoCuenta=" + idTipoCuenta +
                ", descripcion='" + descripcion + '\'' +
                '}';
     }

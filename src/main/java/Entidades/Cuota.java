@@ -3,7 +3,7 @@ package Entidades;
 import java.time.LocalDate; // Importar para FechaPago
 
 
-public class Cuotas {
+public class Cuota {
     private int idCuota;
     private Prestamo prestamo; // Objeto de composición
     private int numeroCuota;
@@ -11,11 +11,11 @@ public class Cuotas {
     private LocalDate fechaPago; // Puede ser null si la cuota no ha sido pagada
     private String estadoPago; // Coincide con 'EstadoPago VARCHAR(20)' en tu DDL actual
 
-    public Cuotas() {
+    public Cuota() {
         // Constructor vacío
     }
 
-    public Cuotas(int idCuota, Prestamo prestamo, int numeroCuota, double monto,
+    public Cuota(int idCuota, Prestamo prestamo, int numeroCuota, double monto,
                  LocalDate fechaPago, String estadoPago) {
         this.idCuota = idCuota;
         this.prestamo = prestamo;

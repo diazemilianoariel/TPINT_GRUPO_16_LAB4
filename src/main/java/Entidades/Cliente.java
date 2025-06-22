@@ -2,7 +2,7 @@ package Entidades;
 
 import java.time.LocalDate; // Importar para FechaNacimiento
 
-public class Clientes {
+public class Cliente {
     private int idCliente;
     private String dni;
     private String cuil;
@@ -14,17 +14,17 @@ public class Clientes {
     private String direccion;
     private String correoElectronico; 
     private String telefono; 
-    private Localidades localidad; 
-    private Usuarios usuario;
+    private Localidad localidad; 
+    private Usuario usuario;
     private boolean estado; 
 
-    public Clientes() {
+    public Cliente() {
         // Constructor vacío
     }
 
-    public Clientes(int idCliente, String dni, String cuil, String nombre, String apellido, String sexo,
-                   String nacionalidad, LocalDate fechaNacimiento, String direccion, Localidades localidad,
-                   String correoElectronico, String telefono, Usuarios usuario, boolean estado) {
+    public Cliente(int idCliente, String dni, String cuil, String nombre, String apellido, String sexo,
+                   String nacionalidad, LocalDate fechaNacimiento, String direccion, Localidad localidad,
+                   String correoElectronico, String telefono, Usuario usuario, boolean estado) {
         this.idCliente = idCliente;
         this.dni = dni;
         this.cuil = cuil;
@@ -78,7 +78,7 @@ public class Clientes {
         return direccion;
     }
 
-    public Localidades getLocalidad() {
+    public Localidad getLocalidad() {
         return localidad;
     }
 
@@ -90,7 +90,7 @@ public class Clientes {
         return telefono;
     }
 
-    public Usuarios getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
@@ -135,7 +135,7 @@ public class Clientes {
         this.direccion = direccion;
     }
 
-    public void setLocalidad(Localidades localidad) {
+    public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
     }
 
@@ -147,7 +147,7 @@ public class Clientes {
         this.telefono = telefono;
     }
 
-    public void setUsuario(Usuarios usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
