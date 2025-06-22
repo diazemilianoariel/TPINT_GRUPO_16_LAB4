@@ -12,7 +12,7 @@ CREATE TABLE Localidad (
   IdLocalidad INT AUTO_INCREMENT PRIMARY KEY,
   Descripcion VARCHAR(100) NOT NULL,
   IdProvincia INT,
-  FOREIGN KEY (IdProvincia) REFERENCES Provincias(IdProvincia)
+  FOREIGN KEY (IdProvincia) REFERENCES Provincia(IdProvincia)
 );
 
 -- Tipos de usuario
@@ -29,7 +29,7 @@ CREATE TABLE Usuario (
   Password VARCHAR(255),
   IdTipoUsuario INT,
   Estado BOOLEAN DEFAULT 1,
-  FOREIGN KEY (IdTipoUsuario) REFERENCES TiposUsuario(IdTipoUsuario)
+  FOREIGN KEY (IdTipoUsuario) REFERENCES TipoUsuario(IdTipoUsuario)
 );
 
 -- Clientes
@@ -48,8 +48,8 @@ CREATE TABLE Cliente (
   IdLocalidad INT,
   IdUsuario INT,
   Estado BOOLEAN DEFAULT 1,
-  FOREIGN KEY (IdLocalidad) REFERENCES Localidades(IdLocalidad),
-  FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario)
+  FOREIGN KEY (IdLocalidad) REFERENCES Localidad(IdLocalidad),
+  FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
 );
 
 -- Tipos de cuenta
@@ -68,8 +68,8 @@ CREATE TABLE Cuenta (
   Cbu VARCHAR(22),
   Saldo DECIMAL(15,2),
   Estado BOOLEAN DEFAULT 1,
-  FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente),
-  FOREIGN KEY (IdTipoCuenta) REFERENCES TiposCuenta(IdTipoCuenta)
+  FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
+  FOREIGN KEY (IdTipoCuenta) REFERENCES TipoCuenta(IdTipoCuenta)
 );
 
 -- Prestamos
@@ -84,8 +84,8 @@ CREATE TABLE Prestamo (
   Interes DECIMAL(5,2),
   CantidadCuotas INT,
   Estado BOOLEAN DEFAULT 1,
-  FOREIGN KEY (IdCliente) REFERENCES Clientes(IdCliente),
-  FOREIGN KEY (IdCuentaAsociada) REFERENCES Cuentas(IdCuenta)
+  FOREIGN KEY (IdCliente) REFERENCES Cliente(IdCliente),
+  FOREIGN KEY (IdCuentaAsociada) REFERENCES Cuenta(IdCuenta)
 );
 
 -- Cuotas
@@ -96,7 +96,7 @@ CREATE TABLE Cuota (
   Monto DECIMAL(15,2),
   FechaPago DATE,
   Estado BOOLEAN DEFAULT 0,
-  FOREIGN KEY (IdPrestamo) REFERENCES Prestamos(IdPrestamo)
+  FOREIGN KEY (IdPrestamo) REFERENCES Prestamo(IdPrestamo)
   );
 
 -- Tipos de movimiento
@@ -114,9 +114,9 @@ CREATE TABLE Movimiento (
   IdTipoMovimiento INT,
   IdCuentaOrigen INT,
   IdCuentaDestino INT,
-  FOREIGN KEY (IdTipoMovimiento) REFERENCES TiposMovimiento(IdTipoMovimiento),
-  FOREIGN KEY (IdCuentaOrigen) REFERENCES Cuentas(IdCuenta),
-  FOREIGN KEY (IdCuentaDestino) REFERENCES Cuentas(IdCuenta)
+  FOREIGN KEY (IdTipoMovimiento) REFERENCES TipoMovimiento(IdTipoMovimiento),
+  FOREIGN KEY (IdCuentaOrigen) REFERENCES Cuenta(IdCuenta),
+  FOREIGN KEY (IdCuentaDestino) REFERENCES Cuenta(IdCuenta)
 );
 
 
