@@ -15,14 +15,14 @@ BEGIN
   DECLARE vIdUsuario INT;
 
   -- 1. Insertar usuario vacío (solo con campos NULL)
-  INSERT INTO Usuarios (NombreUsuario, Password, IdTipoUsuario, Estado)
+  INSERT INTO Usuario (NombreUsuario, Password, IdTipoUsuario, Estado)
   VALUES (NULL, NULL, 2, 1);
 
   -- 2. Obtener el último ID insertado
   SET vIdUsuario = LAST_INSERT_ID();
 
   -- 3. Insertar cliente con ese IdUsuario
-  INSERT INTO Clientes (
+  INSERT INTO Cliente (
     Dni, Cuil, Nombre, Apellido, Sexo, FechaNacimiento,
     Direccion, CorreoElectronico, Telefono, IdLocalidad, IdUsuario, Estado
   )

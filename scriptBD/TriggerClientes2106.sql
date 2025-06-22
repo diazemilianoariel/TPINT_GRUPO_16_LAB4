@@ -4,7 +4,7 @@ BEGIN
 DECLARE vIdUsuario INT;
 
   IF NEW.IdUsuario IS NULL THEN
-    INSERT INTO Usuarios (NombreUsuario, Password, IdTipoUsuario, Estado)
+    INSERT INTO Usuario (NombreUsuario, Password, IdTipoUsuario, Estado)
     VALUES (NULL, NULL, 2, 1);
 
     SET vIdUsuario = LAST_INSERT_ID();
