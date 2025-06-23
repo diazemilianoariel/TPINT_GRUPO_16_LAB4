@@ -1,9 +1,7 @@
-package Servlets; // Coincide con tu paquete 'Servlets'
+package Servlets; 
 
-import ImplementacionNegocio.UsuarioNegocio; // La implementación de la lógica de negocio de Usuarios
-import Entidades.Usuario;                 // La entidad Usuarios
-// Importa las excepciones personalizadas si las quieres manejar aquí, por ejemplo:
-// import Excepciones.AutenticacionFallidaException;
+import ImplementacionNegocio.UsuarioNegocio; 
+import Entidades.Usuario;                
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-@WebServlet("/login") // Mapea este Servlet a la URL /login. El formulario de login.jsp debe apuntar aquí.
+@WebServlet("/login") 
 public class LoginServlet extends HttpServlet {
 
-    private static final long serialVersionUID = 1L; // ID de serialización para Servlets
-    private UsuarioNegocio usuarioNegocio; // Instancia de la lógica de negocio de Usuario
+    private static final long serialVersionUID = 1L;
+    private UsuarioNegocio usuarioNegocio;
 
   
     public LoginServlet() {
         super();
-        this.usuarioNegocio = new UsuarioNegocio(); // Instanciamos la lógica de negocio
+        this.usuarioNegocio = new UsuarioNegocio(); 
     }
 
    
@@ -32,11 +30,6 @@ public class LoginServlet extends HttpServlet {
         // Simplemente redirige a la página de login si se accede por GET
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
-
-    
-    
-    
-    
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
