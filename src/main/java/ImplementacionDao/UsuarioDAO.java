@@ -28,25 +28,38 @@ public class UsuarioDAO implements IUsuarioDAO {
         ResultSet rs = null;
 
        
-        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.FechaAlta, u.EstadoActivo, " +
+        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.Estado, " +
                      "tu.IdTipoUsuario, tu.Descripcion AS TipoUsuarioDescripcion " +
                      "FROM Usuario u JOIN TipoUsuario tu ON u.IdTipoUsuario = tu.IdTipoUsuario " +
-                     "WHERE u.NombreUsuario = ? AND u.Password = ? AND u.EstadoActivo = TRUE";
+                     "WHERE u.NombreUsuario = ? AND u.Password = ? AND u.Estado = TRUE";
 
         try {
+            System.out.println("Intentando conectar a la base de datos...");
             con = ConexionDB.obtenerConexion(); 
+            
+            if (con == null) {
+                System.err.println("ERROR: La conexión es null. No se pudo conectar a la base de datos.");
+                System.err.println("Verifica que:");
+                System.err.println("1. MySQL esté ejecutándose");
+                System.err.println("2. La base de datos 'BancoTpIntegrador3' exista");
+                System.err.println("3. Las credenciales sean correctas");
+                return null;
+            }
+            
+            System.out.println("Conexión exitosa, preparando consulta...");
             ps = con.prepareStatement(sql);
             ps.setString(1, nombreUsuario);
             ps.setString(2, password);
+            System.out.println("Ejecutando consulta para usuario: " + nombreUsuario);
             rs = ps.executeQuery(); 
 
             if (rs.next()) { 
+                System.out.println("Usuario encontrado en la base de datos");
                 usuarios = new Usuario(); 
                 usuarios.setIdUsuario(rs.getInt("IdUsuario"));
                 usuarios.setNombreUsuario(rs.getString("NombreUsuario"));
                 usuarios.setPassword(rs.getString("Password")); 
-                usuarios.setFechaAlta(rs.getDate("FechaAlta").toLocalDate()); 
-                usuarios.setEstado(rs.getBoolean("EstadoActivo")); 
+                usuarios.setEstado(rs.getBoolean("Estado")); 
 
                
                 TipoUsuario tiposUsuario = new TipoUsuario(
@@ -54,9 +67,15 @@ public class UsuarioDAO implements IUsuarioDAO {
                     rs.getString("TipoUsuarioDescripcion")
                 );
                 usuarios.setTipoUsuario(tiposUsuario);
+                System.out.println("Usuario autenticado: " + usuarios.getNombreUsuario() + 
+                                 " (Tipo: " + usuarios.getTipoUsuario().getDescripcion() + ")");
+            } else {
+                System.out.println("No se encontró usuario con las credenciales proporcionadas");
             }
         } catch (SQLException e) {
             System.err.println("Error SQL al obtener usuario por credenciales: " + e.getMessage());
+            System.err.println("SQL State: " + e.getSQLState());
+            System.err.println("Error Code: " + e.getErrorCode());
             e.printStackTrace();
            
         } finally {
@@ -77,8 +96,8 @@ public class UsuarioDAO implements IUsuarioDAO {
         ResultSet rs = null;
 
        
-        String sql = "INSERT INTO Usuario (NombreUsuario, Password, IdTipoUsuario, FechaAlta, EstadoActivo) " +
-                     "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (NombreUsuario, Password, IdTipoUsuario, Estado) " +
+                     "VALUES (?, ?, ?, ?)";
 
         try {
             con = ConexionDB.obtenerConexion();
@@ -88,8 +107,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ps.setString(1, usuario.getNombreUsuario());
             ps.setString(2, usuario.getPassword());
             ps.setInt(3, usuario.getTipoUsuario().getIdTipoUsuario()); 
-            ps.setDate(4, Date.valueOf(usuario.getFechaAlta())); 
-            ps.setBoolean(5, usuario.isEstado());
+            ps.setBoolean(4, usuario.isEstado());
 
             int filasAfectadas = ps.executeUpdate();
 
@@ -114,7 +132,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         PreparedStatement ps = null;
 
         
-        String sql = "UPDATE Usuarios SET NombreUsuario = ?, Password = ?, IdTipoUsuario = ?, EstadoActivo = ? " +
+        String sql = "UPDATE Usuario SET NombreUsuario = ?, Password = ?, IdTipoUsuario = ?, Estado = ? " +
                      "WHERE IdUsuario = ?";
 
         try {
@@ -146,7 +164,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         PreparedStatement ps = null;
 
         
-        String sql = "UPDATE Usuarios SET EstadoActivo = ? WHERE IdUsuario = ?";
+        String sql = "UPDATE Usuario SET Estado = ? WHERE IdUsuario = ?";
 
         try {
             con = ConexionDB.obtenerConexion();
@@ -174,9 +192,9 @@ public class UsuarioDAO implements IUsuarioDAO {
         ResultSet rs = null;
 
        
-        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.FechaAlta, u.EstadoActivo, " +
+        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.Estado, " +
                      "tu.IdTipoUsuario, tu.Descripcion AS TipoUsuarioDescripcion " +
-                     "FROM Usuario u JOIN TiposUsuario tu ON u.IdTipoUsuario = tu.IdTipoUsuario " +
+                     "FROM Usuario u JOIN TipoUsuario tu ON u.IdTipoUsuario = tu.IdTipoUsuario " +
                      "WHERE u.IdUsuario = ?";
 
         try {
@@ -190,8 +208,7 @@ public class UsuarioDAO implements IUsuarioDAO {
                 usuario.setIdUsuario(rs.getInt("IdUsuario"));
                 usuario.setNombreUsuario(rs.getString("NombreUsuario"));
                 usuario.setPassword(rs.getString("Password"));
-                usuario.setFechaAlta(rs.getDate("FechaAlta").toLocalDate());
-                usuario.setEstado(rs.getBoolean("EstadoActivo"));
+                usuario.setEstado(rs.getBoolean("Estado"));
 
                 TipoUsuario tiposUsuario = new TipoUsuario(
                     rs.getInt("IdTipoUsuario"),
@@ -215,7 +232,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         ResultSet rs = null;
 
        
-        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.FechaAlta, u.EstadoActivo, " +
+        String sql = "SELECT u.IdUsuario, u.NombreUsuario, u.Password, u.Estado, " +
                      "tu.IdTipoUsuario, tu.Descripcion AS TipoUsuarioDescripcion " +
                      "FROM Usuario u JOIN TipoUsuario tu ON u.IdTipoUsuario = tu.IdTipoUsuario";
 
@@ -229,8 +246,7 @@ public class UsuarioDAO implements IUsuarioDAO {
                 usuario.setIdUsuario(rs.getInt("IdUsuario"));
                 usuario.setNombreUsuario(rs.getString("NombreUsuario"));
                 usuario.setPassword(rs.getString("Password"));
-                usuario.setFechaAlta(rs.getDate("FechaAlta").toLocalDate());
-                usuario.setEstado(rs.getBoolean("EstadoActivo"));
+                usuario.setEstado(rs.getBoolean("Estado"));
 
                 TipoUsuario tiposUsuario = new TipoUsuario(
                     rs.getInt("IdTipoUsuario"),

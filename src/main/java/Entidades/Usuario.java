@@ -1,25 +1,21 @@
 package Entidades;
 
-import java.time.LocalDate; // Importar para FechaAlta
-
 public class Usuario {
     private int idUsuario;
     private String nombreUsuario;
     private String password;
     private TipoUsuario tipoUsuario; // Objeto de composición
-    private LocalDate fechaAlta;
     private boolean estado; 
 
     public Usuario() {
         // Constructor vacío
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, TipoUsuario tipoUsuario, LocalDate fechaAlta, boolean estado) {
+    public Usuario(int idUsuario, String nombreUsuario, String password, TipoUsuario tipoUsuario, boolean estado) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.tipoUsuario = tipoUsuario;
-        this.fechaAlta = fechaAlta;
         this.estado = estado;
     }
 
@@ -38,10 +34,6 @@ public class Usuario {
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
-    }
-
-    public LocalDate getFechaAlta() {
-        return fechaAlta;
     }
 
     public boolean isEstado() { // Método getter para 'estado'
@@ -63,10 +55,6 @@ public class Usuario {
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }
-
-    public void setFechaAlta(LocalDate fechaAlta) {
-        this.fechaAlta = fechaAlta;
     }
 
     public void setEstado(boolean estado) { // Método setter para 'estado'

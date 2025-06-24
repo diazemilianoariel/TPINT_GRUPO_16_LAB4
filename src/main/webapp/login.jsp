@@ -19,7 +19,14 @@
 	        <div class="card shadow">
 	            <div class="card-body">
 	                <h4 class="card-title text-center mb-4">Ingresar al sistema</h4>
-	                <form action="menuAdministrador.jsp" method="get">
+	                
+	                <% if (request.getAttribute("mensajeError") != null) { %>
+	                    <div class="alert alert-danger" role="alert">
+	                        <%= request.getAttribute("mensajeError") %>
+	                    </div>
+	                <% } %>
+	                
+	                <form action="login" method="post">
 					    <div class="mb-3">
 					        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
 					    </div>
